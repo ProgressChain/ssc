@@ -134,10 +134,12 @@ func handleMessage(backend Backend, peer *Peer) error {
 		if err := msg.Decode(res); err != nil {
 			return fmt.Errorf("%w: message %v: %v", errDecode, msg, err)
 		}
+		fmt.Printf("size of diff layer %d\n", msg.Size)
 		return backend.Handle(peer, res)
 	case msg.Code == FullDiffLayerMsg:
 		// A batch of trie nodes arrived to one of our previous requests
 		res := new(FullDiffLayersPacket)
+		fmt.Printf("size of diff layer %d\n", msg.Size)
 		if err := msg.Decode(res); err != nil {
 			return fmt.Errorf("%w: message %v: %v", errDecode, msg, err)
 		}

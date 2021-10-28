@@ -1,6 +1,7 @@
 package diff
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -88,6 +89,7 @@ func (p *Peer) RequestDiffLayers(hashes []common.Hash) error {
 	id := rand.Uint64()
 
 	requestTracker.Track(p.id, p.version, GetDiffLayerMsg, FullDiffLayerMsg, id)
+	fmt.Printf("fetch diff layer: %s\n", hashes[0])
 	return p2p.Send(p.rw, GetDiffLayerMsg, GetDiffLayersPacket{
 		RequestId:   id,
 		BlockHashes: hashes,

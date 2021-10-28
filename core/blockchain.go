@@ -2704,6 +2704,11 @@ func (bc *BlockChain) pruneDiffLayer() {
 			}
 		}
 	}
+	num := 0
+	for _, v := range bc.blockHashToDiffLayers {
+		num += len(v)
+	}
+	log.Error("num of diff layers is ", "num", num)
 }
 
 // Process received diff layers
@@ -2721,14 +2726,24 @@ func (bc *BlockChain) HandleDiffLayer(diffLayer *types.DiffLayer, pid string, fu
 
 	bc.diffMux.Lock()
 	defer bc.diffMux.Unlock()
+	//
+	//if _, exist := bc.diffHashToBlockHash[diffLayer.DiffHash]; exist {
+	//	log.Error("diffLayer already exist", "pid", pid)
+	//	return nil
+	//}
+	//
+	//if _, exist := bc.diffLayerCache.Get(diffLayer.BlockHash); exist {
+	//	log.Error("diffLayer already exist in trust cache", "pid", pid)
+	//	return nil
+	//}
 
 	if !fulfilled && len(bc.diffPeersToDiffHashes[pid]) > maxDiffLimitForBroadcast {
-		log.Error("too many accumulated diffLayers", "pid", pid)
+		log.Error("too many accumulated diffLayers", "pid", pid, "fulfilled", false)
 		return nil
 	}
 
 	if len(bc.diffPeersToDiffHashes[pid]) > maxDiffLimit {
-		log.Error("too many accumulated diffLayers", "pid", pid)
+		log.Error("too many accumulated diffLayers", "pid", pid, "fulfilled", true)
 		return nil
 	}
 	if _, exist := bc.diffPeersToDiffHashes[pid]; exist {
