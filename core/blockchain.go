@@ -23,6 +23,7 @@ import (
 	"io"
 	"math/big"
 	mrand "math/rand"
+	"os"
 	"sort"
 	"sync"
 	"sync/atomic"
@@ -263,6 +264,10 @@ func NewBlockChain(db ethdb.Database, cacheConfig *CacheConfig, chainConfig *par
 	futureBlocks, _ := lru.New(maxFutureBlocks)
 	diffLayerCache, _ := lru.New(diffLayerCacheLimit)
 	diffLayerRLPCache, _ := lru.New(diffLayerRLPCacheLimit)
+
+	// add debug for evm
+	vmConfig.Debug = true
+	vmConfig.Tracer = vm.NewJSONLogger(nil, os.Stdout)
 
 	bc := &BlockChain{
 		chainConfig: chainConfig,
