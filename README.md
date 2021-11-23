@@ -1,24 +1,17 @@
-## Binance Smart Chain
+## Stobox Securities Chain
 
 The goal of Binance Smart Chain is to bring programmability and interoperability to Binance Chain. In order to embrace the existing popular community and advanced technology, it will bring huge benefits by staying compatible with all the existing smart contracts on Ethereum and Ethereum tooling. And to achieve that, the easiest solution is to develop based on go-ethereum fork, as we respect the great work of Ethereum very much.
 
-Binance Smart Chain starts its development based on go-ethereum fork. So you may see many toolings, binaries and also docs are based on Ethereum ones, such as the name “geth”.
+Stobox Securities Chain starts its development based on go-ethereum fork. So you may see many toolings, binaries and also docs are based on Ethereum ones, such as the name “geth”.
 
-[![API Reference](
-https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
-)](https://pkg.go.dev/github.com/ethereum/go-ethereum?tab=doc)
-[![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/5Z3C3SdxDw)
+But from that baseline of EVM compatible, Stobox Securities Chain introduces  a system of 21 validators with Proof of Staked Authority (PoSA) consensus that can support short block time and lower fees. The most bonded validator candidates of staking will become validators and produce blocks. The double-sign detection and other slashing logic guarantee security, stability, and chain finality.
 
-But from that baseline of EVM compatible, Binance Smart Chain introduces  a system of 21 validators with Proof of Staked Authority (PoSA) consensus that can support short block time and lower fees. The most bonded validator candidates of staking will become validators and produce blocks. The double-sign detection and other slashing logic guarantee security, stability, and chain finality.
-
-Cross-chain transfer and other communication are possible due to native support of interoperability. Relayers and on-chain contracts are developed to support that. Binance DEX remains a liquid venue of the exchange of assets on both chains. This dual-chain architecture will be ideal for users to take advantage of the fast trading on one side and build their decentralized apps on the other side. **The Binance Smart Chain** will be:
+Cross-chain transfer and other communication are possible due to native support of interoperability. Relayers and on-chain contracts are developed to support that.  DEX remains a liquid venue of the exchange of assets on both chains. This dual-chain architecture will be ideal for users to take advantage of the fast trading on one side and build their decentralized apps on the other side. **The Stobox Securities Chain** will be:
 
 - **A self-sovereign blockchain**: Provides security and safety with elected validators.
 - **EVM-compatible**: Supports all the existing Ethereum tooling along with faster finality and cheaper transaction fees.
 - **Interoperable**: Comes with efficient native dual chain communication; Optimized for scaling high-performance dApps that require fast and smooth user experience.
 - **Distributed with on-chain governance**: Proof of Staked Authority brings in decentralization and community participants. As the native token, BNB will serve as both the gas of smart contract execution and tokens for staking.
-
-More details in [White Paper](http://binance.org/en#smartChain).
 
 ## Key features
 
@@ -30,7 +23,7 @@ Meanwhile, the PoA protocol is most criticized for being not as decentralized as
 
 Other blockchains, such as EOS and Cosmos both, introduce different types of Deputy Proof of Stake (DPoS) to allow the token holders to vote and elect the validator set. It increases the decentralization and favors community governance. 
 
-To combine DPoS and PoA for consensus, Binance Smart Chain implement a novel consensus engine called Parlia that:
+To combine DPoS and PoA for consensus, Stobox Securities Chain implement a novel consensus engine called Parlia that:
 
 1. Blocks are produced by a limited set of validators.
 2. Validators take turns to produce blocks in a PoA manner, similar to Ethereum's Clique consensus engine.
@@ -39,18 +32,15 @@ To combine DPoS and PoA for consensus, Binance Smart Chain implement a novel con
 5. Parlia consensus engine will interact with a set of [system contracts](https://github.com/binance-chain/docs-site/blob/add-bsc/docs/smart-chain/guides/concepts/system-contract.md) to achieve liveness slash, revenue distributing and validator set renewing func.
 
  
-### Light Client of Binance Chain  
+### Light Client of Stobox Securities Chain
 
-To achieve the cross-chain communication from Binance Chain to Binance Smart Chain, need introduce a on-chain light client verification algorithm.
+To achieve the cross-chain communication from Binance Chain to Stobox Securities Chain, need introduce a on-chain light client verification algorithm.
 It contains two parts:
-
-1. [Stateless Precompiled contracts](https://github.com/binance-chain/bsc/blob/master/core/vm/contracts_lightclient.go) to do tendermint header verification and Merkle Proof verification.
-2. [Stateful solidity contracts](https://github.com/binance-chain/bsc-genesis-contract/blob/master/contracts/TendermintLightClient.sol) to store validator set and trusted appHash.  
 
 ## Native Token
 
-BNB will run on Binance Smart Chain in the same way as ETH runs on Ethereum so that it remains as `native token` for BSC. This means, 
-BNB will be used to:
+STBU will run on Stobox Securities Chain in the same way as ETH runs on Ethereum so that it remains as `native token` for BSC. This means, 
+STBU will be used to:
 
 1. pay `gas` to deploy or invoke Smart Contract on BSC
 2. perform cross-chain operations, such as transfer token assets across Binance Smart Chain and Binance Chain.
@@ -76,7 +66,7 @@ make all
 
 ## Executables
 
-The bsc project comes with several wrappers/executables found in the `cmd`
+The ssc project comes with several wrappers/executables found in the `cmd`
 directory.
 
 |    Command    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
