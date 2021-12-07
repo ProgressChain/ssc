@@ -74,6 +74,10 @@ var YoloV3Bootnodes = []string{
 	"enode://9e1096aa59862a6f164994cb5cb16f5124d6c992cdbf4535ff7dea43ea1512afe5448dca9df1b7ab0726129603f1a3336b631e4d7a1a44c94daddd03241587f9@3.9.20.133:30303",
 }
 
+var SSCBootNodes = []string{
+	"enode://f6d874c370c83c55471e5b933a291c24a72a8ab6c742bb798105a32abf7ce62537b80dedee7ddfaf9e123e3a65ec2c01cbe36116d608f7e194f8edc0c208ed76@127.0.0.1:30303",
+}
+
 var V5Bootnodes = []string{
 	// Teku team's bootnode
 	"enr:-KG4QOtcP9X1FbIMOe17QNMKqDxCpm14jcX5tiOE4_TyMrFqbmhPZHK_ZPG2Gxb1GE2xdtodOfx9-cgvNtxnRyHEmC0ghGV0aDKQ9aX9QgAAAAD__________4JpZIJ2NIJpcIQDE8KdiXNlY3AyNTZrMaEDhpehBDbZjM_L9ek699Y7vhUJ-eAdMyQW_Fil522Y0fODdGNwgiMog3VkcIIjKA",
